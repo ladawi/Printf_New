@@ -6,29 +6,20 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/15 17:30:27 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/15 22:12:38 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC_LIST = src/printf.c \
-			src/printc.c \
-			src/prints.c \
-			src/printd.c \
-			src/printu.c \
-			src/printp.c \
-			src/printx.c \
-			src/printfX.c \
-			src/flagsize.c \
-			src/flagzero.c \
-			src/getparams.c \
-			src/replace.c \
-			libft/*.c \
+SRC_LIST = src/ft_printf.c \
+			src/ft_buffset.c \
+			src/ft_parsing.c \
+			src/ft_getflags.c \
 			
 SRCO = $(SRC_LIST:%.c= %.o)
 
-INCLUDE = includes/printf.h \
+INCLUDE = includes/ft_printf.h \
 
 LIBFT = libft/libft.a
 
@@ -84,4 +75,5 @@ run : all
 	@echo "$(PUR)Compiling$(END)"
 	@gcc main.c libftprintf.a libft/libft.a -o printf.out
 	@echo "$(PUR)Exec printf.out :$(END)"
+	# @make clean
 	@./printf.out
