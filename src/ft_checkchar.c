@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_checkchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 19:40:50 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/16 11:37:02 by ladawi           ###   ########.fr       */
+/*   Created: 2020/01/16 11:27:49 by ladawi            #+#    #+#             */
+/*   Updated: 2020/01/16 11:35:03 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "libft/libft.h"
-#include <stdio.h>
+#include "../includes/ft_printf.h"
 
-int		main()
+int		ft_checkchar(const char c)
 {
-	printf("~~%d++", printf("Valeur m%cdimale d’une variable de type", 42));
-	printf("\n");
-	printf("~~%d--", ft_printf("Valeur m%10cdimale d’une variable de type", 42));
-	return (0);
+	int i;
+	int j;
+	char *tab;
+
+	tab = "cspdiuxX%";
+	i = 0;
+	j = 0;
+	while (tab[j])
+	{
+		if (tab[j] == c)
+		{
+			i++;
+		}
+		j++;
+	}
+	return (i);
 }

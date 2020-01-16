@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/15 22:12:38 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/16 11:28:55 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_LIST = src/ft_printf.c \
 			src/ft_buffset.c \
 			src/ft_parsing.c \
 			src/ft_getflags.c \
+			src/ft_checkchar.c \
 			
 SRCO = $(SRC_LIST:%.c= %.o)
 

@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 20:53:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/15 21:24:36 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/16 11:44:04 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int		ft_parsing(t_struct *yeet, va_list ap)
 		}
 		else 
 		{
-			yeet->retcount += buffaddchar(yeet, yeet->str[i]);
+			yeet->retcount += buffaddchar(yeet, yeet->str[yeet->index]);
 			i++;
 		}
+		// printf("// yeet->index = %d [%s][%c][%c][%d][%d] \\\\\n", yeet->index, yeet->buff + yeet->index, yeet->str[yeet->index],yeet->flags, yeet->width, yeet->precision);
+
 	}
 	return (0);
 }
