@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:56:28 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/15 20:55:06 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/16 16:33:34 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int		buffaddstr(t_struct *yeet, char *str)
 			yeet->index = 0;
 		}
 		yeet->buff[yeet->index] = str[i];
-		i++;
 		yeet->index++;
+		i++;
 	}
 	return (i);
 }

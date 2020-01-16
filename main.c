@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:40:50 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/16 11:37:02 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:50:29 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 
 int		main()
 {
-	printf("~~%d++", printf("Valeur m%cdimale d’une variable de type", 42));
+	printf("  %d++", printf("Valeur : %0-10c \\", 42));
 	printf("\n");
-	printf("~~%d--", ft_printf("Valeur m%10cdimale d’une variable de type", 42));
+	printf("  %d--", ft_printf("Valeur : %10c \\", 42));
+	printf("\n");
 	return (0);
 }

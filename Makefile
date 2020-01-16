@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/16 11:28:55 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/16 17:04:22 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@ NAME = libftprintf.a
 
 SRC_LIST = src/ft_printf.c \
 			src/ft_buffset.c \
-			src/ft_parsing.c \
+			src/ft_scanstr.c \
 			src/ft_getflags.c \
 			src/ft_checkchar.c \
+			src/ft_parsing.c \
+			src/ft_flags.c \
+			src/ft_printf_c.c \
 			
 SRCO = $(SRC_LIST:%.c= %.o)
 
@@ -76,5 +79,4 @@ run : all
 	@echo "$(PUR)Compiling$(END)"
 	@gcc main.c libftprintf.a libft/libft.a -o printf.out
 	@echo "$(PUR)Exec printf.out :$(END)"
-	# @make clean
 	@./printf.out
