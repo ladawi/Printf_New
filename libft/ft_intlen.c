@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scanstr.c                                       :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 20:53:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/17 17:13:18 by ladawi           ###   ########.fr       */
+/*   Created: 2020/01/17 18:18:17 by ladawi            #+#    #+#             */
+/*   Updated: 2020/01/17 20:01:14 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
+#include <stdio.h>
 
-int		ft_scanstr(t_struct *yeet, va_list ap)
+int		ft_intlen(long int nb)
 {
-	int		i;
+	int				len;
+	long int		i;
 
-	i = 0;
-	while (yeet->str[yeet->strid] != 0)
+	i = (nb >= 0) ? 1 : -1;
+	len = 0;
+	if (nb >= 0)
 	{
-		if (yeet->str[yeet->strid] == '%')
+		while (nb > i - 1)
 		{
-			ft_getflags(yeet, ap);
-			ft_parsing(yeet, ap);
-		}
-		else 
-		{
-			yeet->retcount += buffaddchar(yeet, yeet->str[yeet->strid]);
-			yeet->strid++;
+			i = i * 10;
+			len++;
 		}
 	}
-	return (0);
+	if (nb < 0)
+	{
+		while (nb < i + 1)
+		{
+			i *= 10;
+			len++;
+		}
+	}
+	len = (len == 0) ? 1 : len;
+	return (len);
 }

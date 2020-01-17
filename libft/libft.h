@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:37:57 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/15 13:05:54 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/17 20:34:29 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putendl_fd(char *s, int fd);
 long long int	ft_pow(int nb,int pow);
 char			*ft_itoa_base(unsigned int n, long long int base);
+int				ft_intlen(long int nb);
+int				ft_intlenbase(long int nb, int base);
 
 typedef struct	s_list
 {

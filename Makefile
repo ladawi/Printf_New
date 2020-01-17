@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/16 17:04:22 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/17 20:52:27 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ SRC_LIST = src/ft_printf.c \
 			src/ft_parsing.c \
 			src/ft_flags.c \
 			src/ft_printf_c.c \
+			src/ft_printf_s.c \
+			src/ft_printf_d.c \
+			src/ft_printf_u.c \
+			src/ft_printf_x.c \
 			
 SRCO = $(SRC_LIST:%.c= %.o)
 

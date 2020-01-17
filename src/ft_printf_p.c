@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scanstr.c                                       :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/15 20:53:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/17 17:13:18 by ladawi           ###   ########.fr       */
+/*   Created: 2020/01/17 21:05:57 by ladawi            #+#    #+#             */
+/*   Updated: 2020/01/17 21:07:05 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_scanstr(t_struct *yeet, va_list ap)
+int				ft_printf_p(t_struct *yeet, long int arg)
 {
-	int		i;
-
-	i = 0;
-	while (yeet->str[yeet->strid] != 0)
-	{
-		if (yeet->str[yeet->strid] == '%')
-		{
-			ft_getflags(yeet, ap);
-			ft_parsing(yeet, ap);
-		}
-		else 
-		{
-			yeet->retcount += buffaddchar(yeet, yeet->str[yeet->strid]);
-			yeet->strid++;
-		}
-	}
+	
 	return (0);
 }

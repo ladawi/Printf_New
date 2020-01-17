@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:18:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/16 17:05:10 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/17 21:03:50 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,43 @@ int		ft_parsing(t_struct *yeet, va_list ap)
 	int		i;
 	
 	i = 0;
+	// printf("[type = %c]\n", yeet->type);
 	if(yeet->type == 'c')
 	{
-		ft_printf_c(yeet, ap);
+		ft_printf_c(yeet, va_arg(ap, int));
 	}
 	else if(yeet->type == 'd')
 	{
-		printf("muk d\n");
+		ft_printf_d(yeet, va_arg(ap, int));
 	}
 	else if(yeet->type == 'i')
 	{
-		printf("muk i\n");
+		ft_printf_d(yeet, va_arg(ap, int));
 	}
 	else if(yeet->type == 'u')
 	{
-		printf("muk u\n");
+		ft_printf_u(yeet, va_arg(ap, unsigned int));
 	}
 	else if(yeet->type == 'x')
 	{
-		printf("muk x\n");
+		ft_printf_x(yeet, va_arg(ap, int));
 	}
 	else if(yeet->type == 'X')
 	{
-		printf("muk X\n");
+		ft_printf_x(yeet, va_arg(ap, int));
 	}
 	else if(yeet->type == 's')
 	{
-		yeet->retcount += buffaddstr(yeet, va_arg(ap, char *));
+		ft_printf_s(yeet, va_arg(ap, char *));
 	}
 	else if(yeet->type == 'p')
 	{
-		printf("muk p\n");
+		// ft_printf_p(yeet, va_arg(ap, int));
+		printf("prout\n");
 	}
 	else if(yeet->type == '%')
 	{
-		printf("muk %%\n");
+		ft_printf_c(yeet, '%');
 	}
 	yeet->strid++; // remove 'type'
 	return (0);

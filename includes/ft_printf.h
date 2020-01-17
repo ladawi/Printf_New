@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 15:38:11 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/16 17:04:33 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/17 21:05:43 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,18 @@ typedef	struct	s_struct
 }				t_struct;
 
 int				buffaddchar(t_struct *yeet, char c);
-int				buffaddstr(t_struct *yeet, char *str);
+int				buffaddstr(t_struct *yeet, char *str, int size);
+int				buffaddnbr(t_struct *yeet, long int nb, int size, ...);
 int				ft_parsing(t_struct *yeet, va_list ap);
 int				ft_scanstr(t_struct *yeet, va_list ap);
 int				ft_getflags(t_struct *yeet, va_list ap);
 int				ft_flags(t_struct *yeet, va_list ap);
 int				ft_checkchar(const char c);
-int				ft_printf_c(t_struct *yeet, va_list ap);
+int				ft_printf_c(t_struct *yeet, int arg);
+int				ft_printf_s(t_struct *yeet, char *arg);
+int				ft_printf_d(t_struct *yeet, int arg);
+int				ft_printf_u(t_struct *yeet, unsigned int arg);
+int				ft_printf_x(t_struct *yeet, int arg);
+int				ft_printf_p(t_struct *yeet, long int arg);
+
 #endif
