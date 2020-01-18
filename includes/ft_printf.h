@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 15:38:11 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/17 21:05:43 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:32:19 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int				buffaddnbr(t_struct *yeet, long int nb, int size, ...);
 int				ft_parsing(t_struct *yeet, va_list ap);
 int				ft_scanstr(t_struct *yeet, va_list ap);
 int				ft_getflags(t_struct *yeet, va_list ap);
-int				ft_flags(t_struct *yeet, va_list ap);
 int				ft_checkchar(const char c);
 int				ft_printf_c(t_struct *yeet, int arg);
 int				ft_printf_s(t_struct *yeet, char *arg);

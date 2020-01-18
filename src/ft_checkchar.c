@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 11:27:49 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/16 17:14:10 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:32:04 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_checkchar(const char c)
 {
-	int i;
-	int j;
-	char *tab;
+	int		i;
+	int		j;
+	char	*tab;
 
 	tab = "cdiuxXsp%";
 	i = 0;

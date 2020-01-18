@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 16:47:10 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/17 11:20:09 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:31:00 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int		ft_printf_c(t_struct *yeet, int arg)
 {
 	char	c;
-	
+
 	c = (yeet->flags == '0') ? '0' : ' ';
 	if (yeet->flags == '-')
-		yeet->retcount+= buffaddchar(yeet, arg);
+		yeet->retcount += buffaddchar(yeet, arg);
 	while (yeet->width-- > 1)
-		yeet->retcount+= buffaddchar(yeet, c);
+		yeet->retcount += buffaddchar(yeet, c);
 	if (yeet->flags != '-')
-		yeet->retcount+= buffaddchar(yeet, arg);
+		yeet->retcount += buffaddchar(yeet, arg);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:49:54 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/17 19:36:54 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:27:33 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int		ft_setyeettype(t_struct *yeet, va_list ap)
 	i = 0;
 	while (ft_checkchar(yeet->str[yeet->strid + i]) == 0)
 	{
-		if ((ft_isdigit(yeet->str[yeet->strid + i]) == 0) && yeet->str[yeet->strid + i] != '-'
-			&& yeet->str[yeet->strid + i] != '.')
+		if ((ft_isdigit(yeet->str[yeet->strid + i]) == 0)
+			&& yeet->str[yeet->strid + i] != '-'
+				&& yeet->str[yeet->strid + i] != '.')
 		{
 			yeet->type = yeet->str[yeet->strid + i];
 			return (0);
@@ -28,7 +29,6 @@ int		ft_setyeettype(t_struct *yeet, va_list ap)
 		i++;
 	}
 	yeet->type = yeet->str[yeet->strid + i];
-	// printf("[yeet->str[yeet->strid + i] = %c]\n", yeet->str[yeet->strid + i]);
 	return (1);
 }
 
@@ -37,7 +37,8 @@ int		ft_setyeetflags(t_struct *yeet, va_list ap)
 	int i;
 
 	i = 0;
-	while ((yeet->str[yeet->strid + i] == '0') || (yeet->str[yeet->strid + i] == '-'))
+	while ((yeet->str[yeet->strid + i] == '0')
+		|| (yeet->str[yeet->strid + i] == '-'))
 	{
 		if (yeet->str[yeet->strid + i] == '-')
 			yeet->flags = '-';
@@ -54,26 +55,28 @@ int		ft_setyeetwidth(t_struct *yeet, va_list ap)
 	int		i;
 
 	i = 0;
-	while (ft_isdigit(yeet->str[yeet->strid + i]) == 1 && yeet->str[yeet->strid + i] != 0)
+	while (ft_isdigit(yeet->str[yeet->strid + i]) == 1
+		&& yeet->str[yeet->strid + i] != 0)
 		i++;
 	yeet->width = ft_atoi(yeet->str + yeet->strid);
-	// yeet->width = (yeet->width > 0) ? yeet->width : -yeet->width;
 	return (i);
 }
 
 int		ft_setyeetprecision(t_struct *yeet, va_list ap)
 {
 	int		i;
+	int		z;
 
+	z = 0;
 	i = 0;
-	while (yeet->str[yeet->strid + i] != '.' && ft_checkchar(yeet->str[yeet->strid + i]) == 0)		// remove .
+	while (yeet->str[yeet->strid + i] != '.'
+		&& ft_checkchar(yeet->str[yeet->strid + i]) == 0)
 		i++;
-	while (yeet->str[yeet->strid + i] == '.')		// remove .
-		i++;
-	// printf("[%d] ||", ft_atoi(yeet->str + yeet->strid + i));
-	if (i != 0)
-		yeet->precision = ft_atoi(yeet->str + yeet->strid + i);
-	yeet->strid += i;
+	while (yeet->str[yeet->strid + i + z] == '.')
+		z++;
+	if (z != 0)
+		yeet->precision = ft_atoi(yeet->str + yeet->strid + i + z);
+	yeet->strid += i + z;
 	return (i);
 }
 
@@ -82,7 +85,7 @@ int		ft_getflags(t_struct *yeet, va_list ap)
 	int		i;
 
 	i = 0;
-	yeet->strid++;  // remove %
+	yeet->strid++;
 	yeet->flags = -1;
 	yeet->width = -1;
 	yeet->precision = -1;
@@ -94,6 +97,5 @@ int		ft_getflags(t_struct *yeet, va_list ap)
 	}
 	while (yeet->str[yeet->strid] != yeet->type)
 		yeet->strid++;
-	// printf("// yeet->strid = %d [%s][%c][flags = %c][width = %d][pre = %d] \\\\\n", yeet->strid, yeet->str + yeet->strid, yeet->str[yeet->strid],yeet->flags, yeet->width, yeet->precision);
 	return (i);
 }
