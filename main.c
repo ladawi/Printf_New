@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:40:50 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 11:23:38 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 17:59:53 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,23 @@
 
 int		main()
 {
-	char *tester = "Valeur : %-10p =)\\";
+	char *tester = "Valeur : %-*.*s =)\\";
 	unsigned int		arg1 = 2147364;
 	char *				arg2 = "okboomer";
+	char *ok = &arg1;
 
-	printf("  %d++", printf(tester, &arg1));
-	printf("\n");
-	printf("  %d--", ft_printf(tester, &arg1));
-	printf("\n");
-
+	int ret2 = printf("FT_Printf : %.*s is %c test numero %u de valeur entre %*.*d et %i soit (%x et %X) avec 100%% de reussite [%p]",2, "test", 'a', 10,15,5, 21, 42, 16, 42, ok);
+	printf("|--\n");
+	int ret = ft_printf("FT_Printf : %.*s is %c test numero %u de valeur entre %*.*d et %i soit (%x et %X) avec 100%% de reussite [%p]",2, "test", 'a', 10,15,5, 21, 42, 16, 42, ok);
+	printf("|++\n");
+	printf("[ft_printf = %d | ++] [printf = %d | --]\n", ret, ret2);
+	// printf("|  %d++", printf("y4 R"));
+	// printf("\n");
+		// printf("|  %d--", ft_printf("y4 R"));
+	// printf("\n");
+	// printf("ydhW%8.0X%0xiR6TZgg", 0, -2147483647);
+	// printf("\n");
+	// ft_printf("ydhW%8.0X%0xiR6TZgg", 0, -2147483647);
+	// printf("\n");
 	return (0);
 }

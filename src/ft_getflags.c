@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:49:54 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 11:27:33 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 16:50:01 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		ft_setyeettype(t_struct *yeet, va_list ap)
 	{
 		if ((ft_isdigit(yeet->str[yeet->strid + i]) == 0)
 			&& yeet->str[yeet->strid + i] != '-'
-				&& yeet->str[yeet->strid + i] != '.')
+				&& yeet->str[yeet->strid + i] != '.'
+					&& yeet->str[yeet->strid + i] != '*')
 		{
 			yeet->type = yeet->str[yeet->strid + i];
 			return (0);
@@ -37,8 +38,7 @@ int		ft_setyeetflags(t_struct *yeet, va_list ap)
 	int i;
 
 	i = 0;
-	while ((yeet->str[yeet->strid + i] == '0')
-		|| (yeet->str[yeet->strid + i] == '-'))
+	while ((yeet->str[yeet->strid + i] == '0') || (yeet->str[yeet->strid + i] == '-'))
 	{
 		if (yeet->str[yeet->strid + i] == '-')
 			yeet->flags = '-';
@@ -58,7 +58,19 @@ int		ft_setyeetwidth(t_struct *yeet, va_list ap)
 	while (ft_isdigit(yeet->str[yeet->strid + i]) == 1
 		&& yeet->str[yeet->strid + i] != 0)
 		i++;
-	yeet->width = ft_atoi(yeet->str + yeet->strid);
+	if (yeet->str[yeet->strid + i] == '*')
+	{
+		yeet->width = va_arg(ap, int);
+		if (yeet->width < 0)
+		{
+			yeet->width = -yeet->width;
+			yeet->flags = '-';
+		}
+	}
+	else
+		yeet->width = ft_atoi(yeet->str + yeet->strid);
+	if (yeet->width < -1)
+		yeet->width = -yeet->width;
 	return (i);
 }
 
@@ -75,8 +87,21 @@ int		ft_setyeetprecision(t_struct *yeet, va_list ap)
 	while (yeet->str[yeet->strid + i + z] == '.')
 		z++;
 	if (z != 0)
-		yeet->precision = ft_atoi(yeet->str + yeet->strid + i + z);
+	{
+		if (yeet->str[yeet->strid + i + z] == '*')
+		{
+			yeet->precision = va_arg(ap, int);
+			if (yeet->precision < 0)
+			{
+				yeet->precision = -1;
+			}
+		}
+		else
+			yeet->precision = ft_atoi(yeet->str + yeet->strid + i + z);
+	}
 	yeet->strid += i + z;
+	if (yeet->precision < -1)
+		yeet->precision = -yeet->precision;
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 19:49:40 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 11:25:34 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 16:59:17 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int		ft_printf_u(t_struct *yeet, unsigned int arg)
 	c = (yeet->flags == '0' && yeet->precision == -1) ? '0' : ' ';
 	lenarg = ft_intlen(arg);
 	yeet->width -= (yeet->precision > lenarg) ? yeet->precision : lenarg;
+	// printf("~~%d~~%d~~%c~~%c~~\n", yeet->precision, yeet->width, c, yeet->flags);
+	if (((yeet->precision == 0) && arg == 0))
+		yeet->width++;
 	if (yeet->flags == '-')
 	{
 		while (yeet->precision > lenarg++)

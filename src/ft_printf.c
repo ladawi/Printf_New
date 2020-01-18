@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 18:04:14 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 11:36:19 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/18 17:48:07 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_printf(const char *str, ...)
 	yeet.precision = -1;
 	ft_memset(yeet.buff, 0, B_SIZE);
 	ft_scanstr(&yeet, ap);
-	write(1, yeet.buff, B_SIZE);
+	write(1, yeet.buff, yeet.index);
 	va_end(ap);
 	return (yeet.retcount);
 }
