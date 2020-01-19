@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:56:28 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 17:48:20 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 12:11:51 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,40 @@ int		buffaddnbr(t_struct *yeet, long int nb, int size)
 	i = 0;
 	base = (yeet->type == 'x' || yeet->type == 'X' || yeet->type == 'p')
 		? 16 : 10;
-		tmp = ft_itoa_base(nb, base);
+	tmp = ft_itoa_base(nb, base);
 	size = (size == -1) ? ft_strlen(tmp) : size;
 	if (nb == 0 && yeet->precision == 0)
 		return (0);
 	while (tmp[i] != 0 && size-- > 0)
 	{
 		tmp[i] = (yeet->type == 'X') ? ft_toupper(tmp[i]) : tmp[i];
+		if (yeet->index < B_SIZE)
+			yeet->buff[yeet->index] = tmp[i];
+		else
+		{
+			write(1, yeet->buff, B_SIZE);
+			ft_memset(yeet->buff, 0, B_SIZE);
+			yeet->index = 0;
+		}
+		yeet->buff[yeet->index++] = tmp[i++];
+	}
+	free(tmp);
+	return (i);
+}
+
+int		buffaddadress(t_struct *yeet, unsigned long int nb, int size)
+{
+	int		i;
+	char	*tmp;
+	int		base;
+
+	i = 0;
+	tmp = ft_ultoax(nb);
+	size = (size == -1) ? ft_strlen(tmp) : size;
+	if (nb == 0 && yeet->precision == 0)
+		return (0);
+	while (tmp[i] != 0 && size-- > 0)
+	{
 		if (yeet->index < B_SIZE)
 			yeet->buff[yeet->index] = tmp[i];
 		else

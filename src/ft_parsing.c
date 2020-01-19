@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:18:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 11:34:27 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 12:01:35 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_parsing(t_struct *yeet, va_list ap)
 	else if (yeet->type == 's')
 		ft_printf_s(yeet, va_arg(ap, char *));
 	else if (yeet->type == 'p')
-		ft_printf_p(yeet, va_arg(ap, int));
+		ft_printf_p(yeet, va_arg(ap, unsigned long int));
 	else if (yeet->type == '%')
 		ft_printf_c(yeet, '%');
 	yeet->strid++;

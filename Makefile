@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/18 13:30:00 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/19 12:11:22 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,25 @@ SRC_LIST = src/ft_printf.c \
 			src/ft_printf_u.c \
 			src/ft_printf_x.c \
 			src/ft_printf_p.c \
-			libft/*.c \
 			
+
+LIBFT_LIST = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
+ft_isascii.c ft_isdigit.c\
+ft_isprint.c ft_itoa.c ft_memccpy.c ft_memchr.c ft_memcmp.c\
+ft_memcpy.c ft_memmove.c ft_memset.c ft_memset.c ft_putchar_fd.c\
+ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c\
+ft_strdup.c ft_strjoin.c ft_strjoinfree.c ft_strlcat.c ft_strlcpy.c\
+ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
+ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+ft_itoa_base.c ft_pow.c ft_intlen.c ft_intlenbase.c ft_ultoax.c\
+
 SRCO = $(SRC_LIST:%.c= %.o)
 
-INCLUDE = includes/ft_printf.h \
+LIBFT_SRC = $(addprefix libft/,$(LIBFT_LIST))
 
-LIBFT = libft/libft.a
+LIBFT_O = $(LIBFT_SRC:%.c= %.o)
+
+INCLUDE = includes/ft_printf.h \
 
 OBJ_DIR = obj
 
@@ -46,18 +58,14 @@ BOLD = \033[1m
 
 all: $(NAME)
 
-$(NAME): $(SRCO) $(INCLUDE) $(OBJ_DIR) $(LIBFT)
-	@ar -rc $(NAME) $(SRCO)
+$(NAME): $(SRCO) $(INCLUDE) $(OBJ_DIR) $(LIBFT_O)
+	@ar -rc $(NAME) $(SRCO) $(LIBFT_O)
 	@mv src/*.o obj/.
 	@echo "$(YEL)Made $(NAME)$(END)"
 
 $(OBJ_DIR) :
 	@mkdir $(OBJ_DIR)
 
-$(LIBFT):
-	@make -C libft
-	@echo "$(YEL)Made libft.a$(END)"
-	
 %.o: %.c
 	@gcc -c $< -o $@
 	@echo "$(GRE)$<$(END)"
@@ -79,9 +87,8 @@ fclean: clean
 	@echo "$(RED)$(BOLD)Removed *.out $(END)"
 
 run : all 
-	@make -C libft
 	@echo "$(YEL)Made libft.a$(END)"
 	@echo "$(PUR)Compiling$(END)"
-	@gcc main.c libftprintf.a libft/libft.a -o printf.out
+	@gcc main.c libftprintf.a -o printf.out
 	@echo "$(PUR)Exec printf.out :$(END)"
 	@./printf.out
