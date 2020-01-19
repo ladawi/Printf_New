@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:49:54 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 16:50:01 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 14:01:21 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int		ft_setyeetflags(t_struct *yeet, va_list ap)
 	int i;
 
 	i = 0;
-	while ((yeet->str[yeet->strid + i] == '0') || (yeet->str[yeet->strid + i] == '-'))
+	while ((yeet->str[yeet->strid + i] == '0')
+		|| (yeet->str[yeet->strid + i] == '-'))
 	{
 		if (yeet->str[yeet->strid + i] == '-')
 			yeet->flags = '-';
@@ -92,9 +93,7 @@ int		ft_setyeetprecision(t_struct *yeet, va_list ap)
 		{
 			yeet->precision = va_arg(ap, int);
 			if (yeet->precision < 0)
-			{
 				yeet->precision = -1;
-			}
 		}
 		else
 			yeet->precision = ft_atoi(yeet->str + yeet->strid + i + z);

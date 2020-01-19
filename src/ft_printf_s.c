@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 11:13:43 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 16:42:45 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 14:26:23 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int			ft_printf_s(t_struct *yeet, char *arg)
 	else
 		size = ft_strlen(arg);
 	c = (yeet->flags == '0') ? '0' : ' ';
-	// (ft_strncmp(arg, "(null)", 7) == 0) ? size = 0 : 0;printf("%19s", NULL);
 	if (yeet->flags == '-' && yeet->precision != 0)
 		yeet->retcount += buffaddstr(yeet, arg, size);
 	while (yeet->width-- > size)

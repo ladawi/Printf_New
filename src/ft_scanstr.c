@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 20:53:18 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/18 13:27:49 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 14:01:07 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		ft_scanstr(t_struct *yeet, va_list ap)
 	i = 0;
 	while (yeet->str[yeet->strid] != 0)
 	{
-		// printf("[%c]\n", yeet->str[yeet->strid]);
 		if (yeet->str[yeet->strid] == '%')
 		{
 			ft_getflags(yeet, ap);

@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 19:56:28 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/19 12:11:51 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 14:29:36 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ int		buffaddnbr(t_struct *yeet, long int nb, int size)
 		? 16 : 10;
 	tmp = ft_itoa_base(nb, base);
 	size = (size == -1) ? ft_strlen(tmp) : size;
-	if (nb == 0 && yeet->precision == 0)
-		return (0);
-	while (tmp[i] != 0 && size-- > 0)
+	while (tmp[i] != 0 && size-- > 0 && !(nb == 0 && yeet->precision == 0))
 	{
 		tmp[i] = (yeet->type == 'X') ? ft_toupper(tmp[i]) : tmp[i];
 		if (yeet->index < B_SIZE)

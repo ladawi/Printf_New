@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 15:38:11 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/19 12:11:03 by ladawi           ###   ########.fr       */
+/*   Updated: 2020/01/19 14:26:08 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 # include <stdio.h>
-# define B_SIZE 5
+# define B_SIZE 4096
 
 int				ft_printf(const char *str, ...);
 
@@ -30,7 +30,6 @@ typedef	struct	s_struct
 	int			flags;
 	int			width;
 	int			precision;
-	// int			size;
 	int			type;
 	va_list		ap;
 }				t_struct;
